@@ -78,6 +78,7 @@ class BucketViewModel: ObservableObject {
                 currentDate = calendar.date(byAdding: .day, value: 1, to: currentDate) ?? currentDate
             }
             
+            // Only return pilots with exactly this many consecutive days
             return consecutiveDays == days
         }.sorted { first, second in
             if sortBySeniority {

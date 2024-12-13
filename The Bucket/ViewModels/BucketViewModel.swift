@@ -59,15 +59,34 @@ class BucketViewModel: ObservableObject {
         let startDate = calendar.startOfDay(for: date)
         
         return pilots.filter { pilot in
-            // Count consecutive days starting from the selected date
+            // First check if pilot is on reserve for the start date
+            guard pilot.isOnReserve(for: startDate) else {
+                return false
+            }
+            
+            // Get initial status
+            guard let initialStatus = pilot.reserveDays.first(where: { 
+                calendar.isDate($0.date, inSameDayAs: startDate)
+            })?.status else {
+                return false
+            }
+            
+            // Count consecutive days with matching status
             var consecutiveDays = 0
             var currentDate = startDate
             
-            while true {
-                // Check if pilot has reserve on current date
+            // First verify the status on our target date
+            guard let targetStatus = pilot.reserveDays.first(where: { 
+                calendar.isDate($0.date, inSameDayAs: startDate)
+            })?.status else {
+                return false
+            }
+            
+            // Look forward from target date
+            while consecutiveDays < 7 { // Max 6 consecutive days
                 let hasReserve = pilot.reserveDays.contains { reserveDay in
                     calendar.isDate(reserveDay.date, inSameDayAs: currentDate) &&
-                    (selectedReserveStatus == nil || reserveDay.status == selectedReserveStatus)
+                    reserveDay.status == targetStatus
                 }
                 
                 if !hasReserve {
@@ -75,18 +94,18 @@ class BucketViewModel: ObservableObject {
                 }
                 
                 consecutiveDays += 1
-                currentDate = calendar.date(byAdding: .day, value: 1, to: currentDate) ?? currentDate
+                guard let nextDate = calendar.date(byAdding: .day, value: 1, to: currentDate) else {
+                    break
+                }
+                currentDate = nextDate
             }
             
-            // Only return pilots with exactly this many consecutive days
+            #if DEBUG
+            print("Pilot #\(pilot.seniorityNumber) has \(consecutiveDays) consecutive days from \(startDate)")
+            #endif
+            
             return consecutiveDays == days
-        }.sorted { first, second in
-            if sortBySeniority {
-                return first.seniorityNumber < second.seniorityNumber
-            } else {
-                return first.employeeNumber < second.employeeNumber
-            }
-        }
+        }.sorted { $0.employeeNumber < $1.employeeNumber }
     }
     
     func importPDF(_ url: URL) async {
@@ -202,4 +221,71 @@ class BucketViewModel: ObservableObject {
         
         return viewModel
     }
+    
+    #if DEBUG
+    func debugPilotsOnDate(_ date: Date) {
+        let startDate = calendar.startOfDay(for: date)
+        
+        // Debug all pilots and their reserve days for this date
+        print("\n🔍 All pilots reserve status for \(startDate):")
+        for pilot in pilots {
+            if let reserveDay = pilot.reserveDays.first(where: { 
+                calendar.isDate($0.date, inSameDayAs: startDate)
+            }) {
+                print("Pilot #\(pilot.seniorityNumber) (Employee #\(pilot.employeeNumber))")
+                print("  - Status: \(reserveDay.status.rawValue)")
+            }
+        }
+        
+        // Now debug the filtering
+        let pilotsOnDate = pilots.filter { pilot in
+            pilot.isOnReserve(for: startDate)
+        }
+        
+        print("\n🔍 Filtered pilots on reserve:")
+        print("Total pilots found: \(pilotsOnDate.count)")
+        
+        for pilot in pilotsOnDate {
+            // Get initial status
+            guard let initialStatus = pilot.reserveDays.first(where: { 
+                calendar.isDate($0.date, inSameDayAs: startDate)
+            })?.status else {
+                continue
+            }
+            
+            // Count consecutive days with matching status
+            var consecutiveDays = 0
+            var currentDate = startDate
+            
+            // First verify the status on our target date
+            guard let targetStatus = pilot.reserveDays.first(where: { 
+                calendar.isDate($0.date, inSameDayAs: startDate)
+            })?.status else {
+                continue
+            }
+            
+            // Look forward from target date
+            while consecutiveDays < 7 { // Max 6 consecutive days
+                let hasReserve = pilot.reserveDays.contains { reserveDay in
+                    calendar.isDate(reserveDay.date, inSameDayAs: currentDate) &&
+                    reserveDay.status == targetStatus
+                }
+                
+                if !hasReserve {
+                    break
+                }
+                
+                consecutiveDays += 1
+                guard let nextDate = calendar.date(byAdding: .day, value: 1, to: currentDate) else {
+                    break
+                }
+                currentDate = nextDate
+            }
+            
+            print("Pilot #\(pilot.seniorityNumber) (Employee #\(pilot.employeeNumber))")
+            print("  - Consecutive days: \(consecutiveDays)")
+            print("  - Status: \(initialStatus.rawValue)")
+        }
+    }
+    #endif
 } 

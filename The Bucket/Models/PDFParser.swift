@@ -66,6 +66,7 @@ class PDFParser {
         }
         
         print("✅ Parsed \(allPilots.count) pilots")
+        validateParsedData(pilots: allPilots, month: month, year: year)
         return (month: month, year: year, pilots: allPilots)
     }
     
@@ -80,6 +81,17 @@ class PDFParser {
         print("\n Processing \(lines.count) lines\n")
         
         for line in lines {
+            // Add this before line 113
+            #if DEBUG
+            if line.contains("RSA") || line.contains("RSP") {
+                print("\n🔍 Found potential reserve line: '\(line)'")
+                print("  Current day: \(currentDay)")
+                if let pilot = currentPilot {
+                    print("  Processing for pilot: #\(pilot.seniority)")
+                }
+            }
+            #endif
+            
             // Look for pilot info line (improved pattern)
             if let pilotMatch = try? NSRegularExpression(pattern: #"^#?(\d+)\s*[/-]\s*(\d{6})"#)
                 .firstMatch(in: line, range: NSRange(line.startIndex..., in: line)),
@@ -108,13 +120,19 @@ class PDFParser {
                 continue
             }
             
-            // Look for reserve status (improved pattern)
+            // Look for reserve status (simplified pattern)
             if let pilot = currentPilot,
                currentDay <= daysInMonth, // Only process days within the month
-               let statusMatch = try? NSRegularExpression(pattern: #"^\s*(RSA|RSP)\s*$"#)
+               let statusMatch = try? NSRegularExpression(pattern: #"(RSA|RSP)"#)
                 .firstMatch(in: line, range: NSRange(line.startIndex..., in: line)),
                let statusRange = Range(statusMatch.range(at: 1), in: line),
                let status = ReserveStatus(rawValue: String(line[statusRange])) {
+                
+                #if DEBUG
+                print("\n👉 Found reserve line: '\(line)'")
+                print("  Current day: \(currentDay)")
+                print("  Processing for pilot: #\(pilot.seniority)")
+                #endif
                 
                 var components = DateComponents()
                 components.year = year
@@ -123,7 +141,12 @@ class PDFParser {
                 
                 if let date = Calendar.current.date(from: components) {
                     reserveDays.insert(ReserveDay(date: date, status: status))
-                    print("    📅 Added \(status) for day \(currentDay)")
+                    #if DEBUG
+                    print("    📅 Added \(status) for day \(currentDay) - \(date)")
+                    if components.day == 17 {
+                        print("    🎯 Found pilot #\(pilot.seniority) on December 17th with status \(status)")
+                    }
+                    #endif
                 }
                 currentDay += 1
             }
@@ -161,5 +184,37 @@ class PDFParser {
         }
         
         return (month, year)
+    }
+    
+    private func validateParsedData(pilots: [Pilot], month: Int, year: Int) {
+        print("\n🔍 Validation Report:")
+        print("Total pilots parsed: \(pilots.count)")
+        
+        // Check specific dates
+        let dateToCheck = Calendar.current.date(from: DateComponents(year: year, month: month, day: 17))!
+        let pilotsOnDate = pilots.filter { pilot in
+            pilot.reserveDays.contains { day in
+                Calendar.current.isDate(day.date, inSameDayAs: dateToCheck)
+            }
+        }
+        
+        print("Pilots on the 17th: \(pilotsOnDate.count)")
+        print("\nDetailed pilot status for 17th:")
+        for pilot in pilotsOnDate {
+            print("Pilot #\(pilot.seniorityNumber) (Employee #\(pilot.employeeNumber))")
+            let status = pilot.reserveDays.first { 
+                Calendar.current.isDate($0.date, inSameDayAs: dateToCheck)
+            }?.status.rawValue ?? "Unknown"
+            print("  - Status: \(status)")
+        }
+        
+        // Check for data anomalies
+        let pilotsWithNoReserveDays = pilots.filter { $0.reserveDays.isEmpty }
+        if !pilotsWithNoReserveDays.isEmpty {
+            print("\n⚠️ Warning: Found \(pilotsWithNoReserveDays.count) pilots with no reserve days")
+            pilotsWithNoReserveDays.forEach { pilot in
+                print("  - Pilot #\(pilot.seniorityNumber) (Employee #\(pilot.employeeNumber))")
+            }
+        }
     }
 } 

@@ -244,11 +244,22 @@ struct ContentView: View {
         }
         
         let pilotsOnDate = viewModel.pilots.filter { pilot in
-            pilot.reserveDays.contains { reserveDay in
+            let isOnReserve = pilot.reserveDays.contains { reserveDay in
                 calendar.isDate(reserveDay.date, inSameDayAs: date)
             }
+            
+            #if DEBUG
+            if isOnReserve {
+                print("✅ Pilot #\(pilot.seniorityNumber) is on reserve for \(date)")
+            }
+            #endif
+            
+            return isOnReserve
         }.sorted { $0.employeeNumber < $1.employeeNumber }
         
+        #if DEBUG
+viewModel.debugPilotsOnDate(date)
+#endif
         print("\n📅 Pilots on December 17, 2024:")
         print("Found \(pilotsOnDate.count) pilots")
         

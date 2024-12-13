@@ -1,0 +1,567 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		226FB0062D0B68AF002E44A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 226FAFED2D0B68AE002E44A7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 226FAFF42D0B68AE002E44A7;
+			remoteInfo = "The Bucket";
+		};
+		226FB0102D0B68AF002E44A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 226FAFED2D0B68AE002E44A7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 226FAFF42D0B68AE002E44A7;
+			remoteInfo = "The Bucket";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		226FAFF52D0B68AE002E44A7 /* The Bucket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Bucket.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		226FB0052D0B68AF002E44A7 /* The BucketTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "The BucketTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		226FB00F2D0B68AF002E44A7 /* The BucketUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "The BucketUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		226FAFF72D0B68AE002E44A7 /* The Bucket */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			explicitFileTypes = {
+				ContentView.swift = sourcecode.swift;
+				ViewModels/BucketViewModel.swift = sourcecode.swift;
+			};
+			path = "The Bucket";
+			sourceTree = "<group>";
+		};
+		226FB0082D0B68AF002E44A7 /* The BucketTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "The BucketTests";
+			sourceTree = "<group>";
+		};
+		226FB0122D0B68AF002E44A7 /* The BucketUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "The BucketUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		226FAFF22D0B68AE002E44A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		226FB0022D0B68AF002E44A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		226FB00C2D0B68AF002E44A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		226FAFEC2D0B68AE002E44A7 = {
+			isa = PBXGroup;
+			children = (
+				226FAFF72D0B68AE002E44A7 /* The Bucket */,
+				226FB0082D0B68AF002E44A7 /* The BucketTests */,
+				226FB0122D0B68AF002E44A7 /* The BucketUITests */,
+				226FAFF62D0B68AE002E44A7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		226FAFF62D0B68AE002E44A7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				226FAFF52D0B68AE002E44A7 /* The Bucket.app */,
+				226FB0052D0B68AF002E44A7 /* The BucketTests.xctest */,
+				226FB00F2D0B68AF002E44A7 /* The BucketUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		226FAFF42D0B68AE002E44A7 /* The Bucket */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 226FB0192D0B68AF002E44A7 /* Build configuration list for PBXNativeTarget "The Bucket" */;
+			buildPhases = (
+				226FAFF12D0B68AE002E44A7 /* Sources */,
+				226FAFF22D0B68AE002E44A7 /* Frameworks */,
+				226FAFF32D0B68AE002E44A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				226FAFF72D0B68AE002E44A7 /* The Bucket */,
+			);
+			name = "The Bucket";
+			packageProductDependencies = (
+			);
+			productName = "The Bucket";
+			productReference = 226FAFF52D0B68AE002E44A7 /* The Bucket.app */;
+			productType = "com.apple.product-type.application";
+		};
+		226FB0042D0B68AF002E44A7 /* The BucketTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 226FB01C2D0B68AF002E44A7 /* Build configuration list for PBXNativeTarget "The BucketTests" */;
+			buildPhases = (
+				226FB0012D0B68AF002E44A7 /* Sources */,
+				226FB0022D0B68AF002E44A7 /* Frameworks */,
+				226FB0032D0B68AF002E44A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				226FB0072D0B68AF002E44A7 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				226FB0082D0B68AF002E44A7 /* The BucketTests */,
+			);
+			name = "The BucketTests";
+			packageProductDependencies = (
+			);
+			productName = "The BucketTests";
+			productReference = 226FB0052D0B68AF002E44A7 /* The BucketTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		226FB00E2D0B68AF002E44A7 /* The BucketUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 226FB01F2D0B68AF002E44A7 /* Build configuration list for PBXNativeTarget "The BucketUITests" */;
+			buildPhases = (
+				226FB00B2D0B68AF002E44A7 /* Sources */,
+				226FB00C2D0B68AF002E44A7 /* Frameworks */,
+				226FB00D2D0B68AF002E44A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				226FB0112D0B68AF002E44A7 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				226FB0122D0B68AF002E44A7 /* The BucketUITests */,
+			);
+			name = "The BucketUITests";
+			packageProductDependencies = (
+			);
+			productName = "The BucketUITests";
+			productReference = 226FB00F2D0B68AF002E44A7 /* The BucketUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		226FAFED2D0B68AE002E44A7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1610;
+				LastUpgradeCheck = 1610;
+				TargetAttributes = {
+					226FAFF42D0B68AE002E44A7 = {
+						CreatedOnToolsVersion = 16.1;
+					};
+					226FB0042D0B68AF002E44A7 = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = 226FAFF42D0B68AE002E44A7;
+					};
+					226FB00E2D0B68AF002E44A7 = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = 226FAFF42D0B68AE002E44A7;
+					};
+				};
+			};
+			buildConfigurationList = 226FAFF02D0B68AE002E44A7 /* Build configuration list for PBXProject "The Bucket" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 226FAFEC2D0B68AE002E44A7;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 226FAFF62D0B68AE002E44A7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				226FAFF42D0B68AE002E44A7 /* The Bucket */,
+				226FB0042D0B68AF002E44A7 /* The BucketTests */,
+				226FB00E2D0B68AF002E44A7 /* The BucketUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		226FAFF32D0B68AE002E44A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		226FB0032D0B68AF002E44A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		226FB00D2D0B68AF002E44A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		226FAFF12D0B68AE002E44A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		226FB0012D0B68AF002E44A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		226FB00B2D0B68AF002E44A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		226FB0072D0B68AF002E44A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 226FAFF42D0B68AE002E44A7 /* The Bucket */;
+			targetProxy = 226FB0062D0B68AF002E44A7 /* PBXContainerItemProxy */;
+		};
+		226FB0112D0B68AF002E44A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 226FAFF42D0B68AE002E44A7 /* The Bucket */;
+			targetProxy = 226FB0102D0B68AF002E44A7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		226FB0172D0B68AF002E44A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		226FB0182D0B68AF002E44A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		226FB01A2D0B68AF002E44A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"The Bucket/Preview Content\"";
+				DEVELOPMENT_TEAM = 597AY24ZUZ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.samayler.The-Bucket";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		226FB01B2D0B68AF002E44A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"The Bucket/Preview Content\"";
+				DEVELOPMENT_TEAM = 597AY24ZUZ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.samayler.The-Bucket";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		226FB01D2D0B68AF002E44A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 597AY24ZUZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.samayler.The-BucketTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/The Bucket.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/The Bucket";
+			};
+			name = Debug;
+		};
+		226FB01E2D0B68AF002E44A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 597AY24ZUZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.samayler.The-BucketTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/The Bucket.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/The Bucket";
+			};
+			name = Release;
+		};
+		226FB0202D0B68AF002E44A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 597AY24ZUZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.samayler.The-BucketUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "The Bucket";
+			};
+			name = Debug;
+		};
+		226FB0212D0B68AF002E44A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 597AY24ZUZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.samayler.The-BucketUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "The Bucket";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		226FAFF02D0B68AE002E44A7 /* Build configuration list for PBXProject "The Bucket" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				226FB0172D0B68AF002E44A7 /* Debug */,
+				226FB0182D0B68AF002E44A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		226FB0192D0B68AF002E44A7 /* Build configuration list for PBXNativeTarget "The Bucket" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				226FB01A2D0B68AF002E44A7 /* Debug */,
+				226FB01B2D0B68AF002E44A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		226FB01C2D0B68AF002E44A7 /* Build configuration list for PBXNativeTarget "The BucketTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				226FB01D2D0B68AF002E44A7 /* Debug */,
+				226FB01E2D0B68AF002E44A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		226FB01F2D0B68AF002E44A7 /* Build configuration list for PBXNativeTarget "The BucketUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				226FB0202D0B68AF002E44A7 /* Debug */,
+				226FB0212D0B68AF002E44A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 226FAFED2D0B68AE002E44A7 /* Project object */;
+}

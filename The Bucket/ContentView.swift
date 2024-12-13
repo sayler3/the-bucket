@@ -97,7 +97,7 @@ struct ContentView: View {
                         // Bucket Views
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack(spacing: 20) {
-                                ForEach([1, 2, 3, 4, 5], id: \.self) { days in
+                                ForEach([1, 2, 3, 4, 5, 6], id: \.self) { days in
                                     BucketView(
                                         days: days,
                                         pilots: viewModel.pilotsForBucket(days, on: viewModel.selectedDate)

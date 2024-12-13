@@ -153,6 +153,19 @@ struct ContentView: View {
                         }
                         .frame(maxWidth: .infinity)
                     }
+                    
+                    // Debug Log Button (only in DEBUG builds)
+                    #if DEBUG
+                    Button(action: logPilotsForDate) {
+                        VStack(spacing: 4) {
+                            Image(systemName: "terminal")
+                                .font(.system(size: 24))
+                            Text("Log")
+                                .font(.caption)
+                        }
+                        .frame(maxWidth: .infinity)
+                    }
+                    #endif
                 }
                 .foregroundColor(.accentColor)
                 .padding(.horizontal)
@@ -209,6 +222,34 @@ struct ContentView: View {
             viewModel.importError = error.localizedDescription
             showingError = true
         }
+    }
+    
+    private func logPilotsForDate() {
+        let calendar = Calendar.current
+        var components = DateComponents()
+        components.year = 2024
+        components.month = 12
+        components.day = 17
+        
+        guard let date = calendar.date(from: components) else {
+            print("❌ Could not create date for December 17, 2024")
+            return
+        }
+        
+        let pilotsOnDate = viewModel.pilots.filter { pilot in
+            pilot.reserveDays.contains { reserveDay in
+                calendar.isDate(reserveDay.date, inSameDayAs: date)
+            }
+        }.sorted { $0.employeeNumber < $1.employeeNumber }
+        
+        print("\n📅 Pilots on December 17, 2024:")
+        print("Found \(pilotsOnDate.count) pilots")
+        
+        for pilot in pilotsOnDate {
+            let status = pilot.reserveDays.first { calendar.isDate($0.date, inSameDayAs: date) }?.status.rawValue ?? "Unknown"
+            print("Employee #\(pilot.employeeNumber) - Status: \(status)")
+        }
+        print("\n")
     }
 }
 

@@ -75,10 +75,13 @@ class PDFParser {
         var currentPilot: (seniority: Int, employeeNum: String)?
         var reserveDays: Set<ReserveDay> = []
         var currentDay = 1
+        let daysInMonth = Calendar.current.range(of: .day, in: .month, for: Date())?.count ?? 31
+        
+        print("\n Processing \(lines.count) lines\n")
         
         for line in lines {
-            // Look for pilot info line
-            if let pilotMatch = try? NSRegularExpression(pattern: #"(\d+)\s*/\s*(\d{6})"#)
+            // Look for pilot info line (improved pattern)
+            if let pilotMatch = try? NSRegularExpression(pattern: #"^#?(\d+)\s*[/-]\s*(\d{6})"#)
                 .firstMatch(in: line, range: NSRange(line.startIndex..., in: line)),
                let seniorityRange = Range(pilotMatch.range(at: 1), in: line),
                let employeeRange = Range(pilotMatch.range(at: 2), in: line),
@@ -95,6 +98,7 @@ class PDFParser {
                         name: "",
                         reserveDays: Array(reserveDays).map { ($0.date, $0.status) }
                     ))
+                    print("  ✅ Added pilot #\(pilot.seniority) with \(reserveDays.count) reserve days")
                 }
                 
                 // Start new pilot
@@ -104,9 +108,10 @@ class PDFParser {
                 continue
             }
             
-            // Look for reserve status
+            // Look for reserve status (improved pattern)
             if let pilot = currentPilot,
-               let statusMatch = try? NSRegularExpression(pattern: #"^(RSA|RSP)\s*$"#)
+               currentDay <= daysInMonth, // Only process days within the month
+               let statusMatch = try? NSRegularExpression(pattern: #"^\s*(RSA|RSP)\s*$"#)
                 .firstMatch(in: line, range: NSRange(line.startIndex..., in: line)),
                let statusRange = Range(statusMatch.range(at: 1), in: line),
                let status = ReserveStatus(rawValue: String(line[statusRange])) {
@@ -118,6 +123,7 @@ class PDFParser {
                 
                 if let date = Calendar.current.date(from: components) {
                     reserveDays.insert(ReserveDay(date: date, status: status))
+                    print("    📅 Added \(status) for day \(currentDay)")
                 }
                 currentDay += 1
             }

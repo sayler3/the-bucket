@@ -122,7 +122,14 @@ struct ContentView: View {
                 // Bottom Toolbar
                 HStack(spacing: 20) {
                     // Import Button
-                    Button(action: { showingFilePicker = true }) {
+                    Button(action: {
+                        Task {
+                            // Dispatch file picker presentation to main thread
+                            await MainActor.run {
+                                showingFilePicker = true
+                            }
+                        }
+                    }) {
                         VStack(spacing: 4) {
                             Image(systemName: "doc.badge.plus")
                                 .font(.system(size: 24))

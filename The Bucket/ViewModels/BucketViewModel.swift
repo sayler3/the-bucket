@@ -57,14 +57,28 @@ class BucketViewModel: ObservableObject {
     
     func pilotsForBucket(_ days: Int, on date: Date) -> [Pilot] {
         let startDate = calendar.startOfDay(for: date)
-        let endDate = calendar.date(byAdding: .day, value: days, to: startDate) ?? startDate
         
         return pilots.filter { pilot in
-            pilot.reserveDays.contains { reserveDay in
-                let (date, status) = reserveDay
-                return date >= startDate && date < endDate && 
-                       (selectedReserveStatus == nil || status == selectedReserveStatus)
+            // Count consecutive days starting from the selected date
+            var consecutiveDays = 0
+            var currentDate = startDate
+            
+            while true {
+                // Check if pilot has reserve on current date
+                let hasReserve = pilot.reserveDays.contains { reserveDay in
+                    calendar.isDate(reserveDay.date, inSameDayAs: currentDate) &&
+                    (selectedReserveStatus == nil || reserveDay.status == selectedReserveStatus)
+                }
+                
+                if !hasReserve {
+                    break
+                }
+                
+                consecutiveDays += 1
+                currentDate = calendar.date(byAdding: .day, value: 1, to: currentDate) ?? currentDate
             }
+            
+            return consecutiveDays == days
         }.sorted { first, second in
             if sortBySeniority {
                 return first.seniorityNumber < second.seniorityNumber
